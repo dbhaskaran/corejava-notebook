@@ -1,4 +1,4 @@
-##My SQL Database Setup
+## My SQL Database Setup
 ### Docker Setup
 
 ```shell
