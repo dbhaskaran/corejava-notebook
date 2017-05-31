@@ -19,7 +19,7 @@ public class JDBCSimpleSearch {
 			connection = DriverManager
 					.getConnection("jdbc:mysql://localhost:3306/benjerry?" + "autoReconnect=true&useSSL=false&user=root&password=tiger");
 			statement = connection.prepareStatement(query);
-			statement.setString(1, orderitem.toLowerCase());
+			statement.setString(1, orderitem);
 			resultSet = statement.executeQuery();
 			if(!resultSet.next()) {
 				System.out.printf("No customer ordered %s", orderitem);

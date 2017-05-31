@@ -1,5 +1,5 @@
-#My SQL Database Setup
-## Docker Setup
+##My SQL Database Setup
+### Docker Setup
 
 ```shell
 $ docker pull mysql
