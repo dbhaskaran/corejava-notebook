@@ -12,32 +12,32 @@ public class JDBCSelectExample {
 
 		try {
 
-		Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 
-		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/benjerry?"
-							+ "user=root&password=tiger");
-		statement = connection.createStatement();
-		resultSet = statement.executeQuery("SELECT * FROM Orders");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/benjerry?"
+					+ "autoReconnect=true&useSSL=false&user=root&password=tiger");
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery("SELECT * FROM Orders");
 
-		while (resultSet.next()) {
-			String Fname = resultSet.getString("FirstName");
-			String Lname = resultSet.getString("LastName");
-			String Flavor = resultSet.getString("Flavor");
-			
-			System.out.println("Customer Name: " + Fname + " " + Lname);
-			System.out.println("Customer Order: " + Flavor);
-			
-		}
+			while (resultSet.next()) {
+				String Fname = resultSet.getString("FirstName");
+				String Lname = resultSet.getString("LastName");
+				String Flavor = resultSet.getString("Flavor");
 
-		} catch(Exception sqe) {
+				System.out.println("Customer Name: " + Fname + " " + Lname);
+				System.out.println("Customer Order: " + Flavor);
+
+			}
+
+		} catch (Exception sqe) {
 			sqe.printStackTrace();
-		}
-		finally {
-		try {
-			resultSet.close();
-			statement.close();
-			connection.close();
-		}catch(Exception e){}
+		} finally {
+			try {
+				resultSet.close();
+				statement.close();
+				connection.close();
+			} catch (Exception e) {
+			}
 		}
 	}
 

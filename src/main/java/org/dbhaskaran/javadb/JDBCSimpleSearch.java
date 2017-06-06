@@ -9,19 +9,18 @@ public class JDBCSimpleSearch {
 	private static PreparedStatement statement = null;
 	private static ResultSet resultSet = null;
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws SQLException {
 		try {
 			Scanner in = new Scanner(System.in);
 			System.out.println("Please enter a order item:");
-			String orderitem = in.next();
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			String orderitem = in.nextLine();
 			String query = "SELECT * FROM Orders WHERE Flavor = ?";
-			connection = DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/benjerry?" + "autoReconnect=true&useSSL=false&user=root&password=tiger");
+			connection = DriverManager.getConnection("jdbc:mysql://172.17.0.3:3306/benjerry?"
+					+ "autoReconnect=true&useSSL=false&user=root&password=tiger");
 			statement = connection.prepareStatement(query);
 			statement.setString(1, orderitem);
 			resultSet = statement.executeQuery();
-			if(!resultSet.next()) {
+			if (!resultSet.next()) {
 				System.out.printf("No customer ordered %s", orderitem);
 			}
 			while (resultSet.next()) {
@@ -34,7 +33,7 @@ public class JDBCSimpleSearch {
 
 			}
 
-		} catch (Exception sqe) {
+		} catch (SQLException sqe) {
 			sqe.printStackTrace();
 		} finally {
 			try {

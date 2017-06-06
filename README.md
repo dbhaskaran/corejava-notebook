@@ -8,6 +8,21 @@ A repository of some fun and interesting core java code that can be used to lear
 #### Core Java - Developer's Notebook
 1. Hello World
 
+#### Docker Containers
+MySQL on Docker:
+```shell
+$ docker pull mysql
+$ docker run -d --name mysql_java -p 3306:3306 -v /Users/mysql:/var/lib/mysql -e 'MYSQL_ROOT_NAME=root' -e 'MYSQL_ROOT_PASSWORD=tiger' mysql
+$ docker exec -it mysql_java bash
+$ mysql -uroot -p
+```
+
+MongoDB on Docker:
+```shell
+$ docker run -d --name mongoj -p 27017:27017 -v /Users/myapp:/data/db mongo
+$ docker exec -it mongoj bash
+```
+
 ---
 ##### Reference:
 - [Head First Java, 2nd Edition](https://www.amazon.com/Head-First-Java-Kathy-Sierra/dp/0596009208)
