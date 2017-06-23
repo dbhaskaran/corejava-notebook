@@ -12,20 +12,18 @@ public class JDBCSelectExample {
 
 		try {
 
-			Class.forName("com.mysql.cj.jdbc.Driver");
-
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/benjerry?"
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/contacts?"
 					+ "autoReconnect=true&useSSL=false&user=root&password=tiger");
 			statement = connection.createStatement();
-			resultSet = statement.executeQuery("SELECT * FROM Orders");
+			resultSet = statement.executeQuery("SELECT * FROM addressbook;");
 
 			while (resultSet.next()) {
-				String Fname = resultSet.getString("FirstName");
-				String Lname = resultSet.getString("LastName");
-				String Flavor = resultSet.getString("Flavor");
+				String Fname = resultSet.getString("first_name");
+				String Lname = resultSet.getString("last_name");
+				//String Flavor = resultSet.getString("Flavor");
 
 				System.out.println("Customer Name: " + Fname + " " + Lname);
-				System.out.println("Customer Order: " + Flavor);
+				//System.out.println("Customer Order: " + Flavor);
 
 			}
 
