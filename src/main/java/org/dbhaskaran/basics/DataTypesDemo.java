@@ -12,6 +12,10 @@ public class DataTypesDemo {
 		float f = 3.146367f;
 		double e = 12355.24; 
 		
+		int i = 97;
+		byte g = (byte) x;
+		char ch = (char)i;
+		
 		System.out.println(a);
 		System.out.println(b);
 		System.out.println(c);
@@ -20,7 +24,8 @@ public class DataTypesDemo {
 		System.out.println(l);
 		System.out.println(f);
 		System.out.println(e);
-		
+		System.out.println(g);
+		System.out.println(ch);
 
 	}
 
