@@ -14,8 +14,8 @@ public class JDBCSimpleSearch {
 			Scanner in = new Scanner(System.in);
 			System.out.println("Please enter a order item:");
 			String orderitem = in.nextLine();
-			String query = "SELECT * FROM Orders WHERE Flavor = ?";
-			connection = DriverManager.getConnection("jdbc:mysql://172.17.0.3:3306/benjerry?"
+			String query = "SELECT * FROM Orders WHERE Item = ?";
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant?"
 					+ "autoReconnect=true&useSSL=false&user=root&password=tiger");
 			statement = connection.prepareStatement(query);
 			statement.setString(1, orderitem);
@@ -24,12 +24,12 @@ public class JDBCSimpleSearch {
 				System.out.printf("No customer ordered %s", orderitem);
 			}
 			while (resultSet.next()) {
-				String Fname = resultSet.getString("FirstName");
-				String Lname = resultSet.getString("LastName");
-				String Flavor = resultSet.getString("Flavor");
+				String fname = resultSet.getString("FirstName");
+				String lname = resultSet.getString("LastName");
+				String item = resultSet.getString("Item");
 
-				System.out.println("Customer Name: " + Fname + " " + Lname);
-				System.out.println("Customer Order: " + Flavor);
+				System.out.println("Customer Name: " + fname + " " + lname);
+				System.out.println("Customer Order: " + item);
 
 			}
 
