@@ -3,7 +3,7 @@ package org.dbhaskaran.inheritance;
 public class Tesla extends Car {
 
 	public Tesla() {
-		System.out.println("Initializing Tesla");
+		System.out.println("Initializing Tesla "+ this.hashCode());
 	}
 
 	public void whoami() {

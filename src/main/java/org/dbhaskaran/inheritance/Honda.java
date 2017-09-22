@@ -3,7 +3,7 @@ package org.dbhaskaran.inheritance;
 public class Honda extends Car {
 
 	public Honda() {
-		System.out.println("Initializing Honda");
+		System.out.println("Initializing Honda"+ this.hashCode());
 	}
 
 	@Override
