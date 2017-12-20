@@ -21,7 +21,7 @@ public class MongoJava {
 				/**** Get database ****/
 				// if database doesn't exists, MongoDB will create it for you
 				@SuppressWarnings("deprecation")
-				DB db = mongo.getDB("testdb");
+				DB db = (DB) mongo.getDatabase("testdb");
 
 				/**** Get collection / table from 'testdb' ****/
 				// if collection doesn't exists, MongoDB will create it for you
@@ -75,7 +75,7 @@ public class MongoJava {
 				e.printStackTrace();
 			    } catch (Exception e) {
 				e.printStackTrace();
-			    }		  
+			    }
 
 	}
 

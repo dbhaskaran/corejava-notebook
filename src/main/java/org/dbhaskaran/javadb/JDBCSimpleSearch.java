@@ -8,10 +8,11 @@ public class JDBCSimpleSearch {
 	private static Connection connection = null;
 	private static PreparedStatement statement = null;
 	private static ResultSet resultSet = null;
+	private static Scanner in = null;
 
 	public static void main(String[] args) throws SQLException {
 		try {
-			Scanner in = new Scanner(System.in);
+			in = new Scanner(System.in);
 			System.out.println("Please enter a order item:");
 			String orderitem = in.nextLine();
 			String query = "SELECT * FROM Orders WHERE Item = ?";
@@ -37,6 +38,7 @@ public class JDBCSimpleSearch {
 			sqe.printStackTrace();
 		} finally {
 			try {
+				in.close();
 				resultSet.close();
 				statement.close();
 				connection.close();
