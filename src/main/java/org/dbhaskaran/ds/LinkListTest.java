@@ -14,6 +14,8 @@ public class LinkListTest {
 		
 		list.addFirst(20);
 		
+		list.delete(3);
+		
 		list.printList();
 
 	}
@@ -61,6 +63,21 @@ class LinkedList {
 			curr = curr.getNext();
 		}
 		curr.setNext(newLink);
+		return true;
+	}
+	
+	public boolean delete(int i) {
+		Link slow = first;
+		Link fast = first.getNext();
+		while (fast.getData() != i) {
+			slow = fast;
+			if (fast.getNext() != null)
+				fast = fast.getNext();
+			else
+				return false;
+		}
+		slow.setNext(fast.getNext());
+		fast.setNext(null);
 		return true;
 	}
 	
