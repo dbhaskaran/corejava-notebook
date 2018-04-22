@@ -16,6 +16,22 @@ public class StackFromLL {
 		s1.pop();
 		s1.print();
 
+		// Using a stack to reverse a string or array
+		int[] myArr = { 101, 102, 103, 104, 105 };
+		Stack s2 = new Stack();
+		for (int i : myArr) {
+			s2.push(i);
+		}
+
+		for (int i = 0; i < myArr.length; i++)
+			myArr[i] = s2.pop();
+
+		for (int i : myArr) {
+			System.out.println(i);
+		}
+
+		// TODO check for balanced parentheses
+
 	}
 
 }
