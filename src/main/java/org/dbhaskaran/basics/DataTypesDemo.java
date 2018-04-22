@@ -10,12 +10,12 @@ public class DataTypesDemo {
 		int x = 234;
 		long l = -2456;
 		float f = 3.146367f;
-		double e = 12355.24; 
-		
-		int i = 97;
+		double e = 12355.24;
+
+		int i = 8;
 		byte g = (byte) x;
-		char ch = (char)i;
-		
+		char ch = (char) i;
+
 		System.out.println(a);
 		System.out.println(b);
 		System.out.println(c);
@@ -26,6 +26,7 @@ public class DataTypesDemo {
 		System.out.println(e);
 		System.out.println(g);
 		System.out.println(ch);
+		System.out.println(Integer.toBinaryString(i));
 
 	}
 

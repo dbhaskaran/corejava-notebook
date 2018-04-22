@@ -10,12 +10,16 @@ public class LinkListTest {
 		list.add(4);
 		list.add(5);
 
+		list.printForward(list.getHead());
+		list.printReverse(list.getHead());
+
 		list.printList();
-		
+		list.reverseIter();
+		list.printList();
 		list.addFirst(20);
-		
+
 		list.delete(3);
-		
+
 		list.printList();
 
 	}
@@ -59,13 +63,17 @@ class LinkedList {
 	public boolean add(int i) {
 		Link newLink = new Link(i);
 		Link curr = first;
-		while(curr.getNext() != null){
+		while (curr.getNext() != null) {
 			curr = curr.getNext();
 		}
 		curr.setNext(newLink);
 		return true;
 	}
-	
+
+	// TODO insert at nth position
+	// TODO delete at nth position
+	// TODO reverse a LL using recursion
+
 	public boolean delete(int i) {
 		Link slow = first;
 		Link fast = first.getNext();
@@ -80,11 +88,26 @@ class LinkedList {
 		fast.setNext(null);
 		return true;
 	}
-	
+
 	public boolean addFirst(int i) {
 		Link newLink = new Link(i);
 		newLink.setNext(first.getNext());
 		first.setNext(newLink);
+		return true;
+	}
+
+	public boolean reverseIter() {
+		Link curr = first.getNext();
+		Link prev = null;
+		Link next = null;
+		while (curr != null) {
+			next = curr.getNext();
+			curr.setNext(prev);
+			prev = curr;
+			curr = next;
+		}
+		first = new Link(0);
+		first.setNext(prev);
 		return true;
 	}
 
@@ -97,6 +120,26 @@ class LinkedList {
 			currentLink = currentLink.getNext();
 		}
 		System.out.println("");
+	}
+
+	public void printReverse(Link first) {
+		if (first == null)
+			return;
+		// print list of head node
+		printReverse(first.getNext());
+		// After everything else is printed
+		System.out.println(first.getData() + " ");
+	}
+
+	public void printForward(Link first) {
+		if (first == null)
+			return;
+		System.out.println(first.getData() + " ");
+		printForward(first.getNext());
+	}
+
+	public Link getHead() {
+		return this.first;
 	}
 
 }
